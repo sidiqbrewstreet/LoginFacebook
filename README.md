@@ -49,7 +49,7 @@ def LoginWithValidate(email=email, password=password, UserAgent=UserAgent):
     response = Validate(email=email, password=password, UserAgent=UserAgent)
 ```
 ```python
-from secretkeyfacebook import Validate
+from secretkeyfacebook import Async
 
 def LoginWithAsync(email=email, password=password, UserAgent=UserAgent):
     response = Async(email=email, password=password, UserAgent=UserAgent)
