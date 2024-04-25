@@ -79,9 +79,112 @@ def LoginWithMessenger_API(email=email, password=password, UserAgent=UserAgent):
 # Error Message
 ```python
 # Jika Kredensial Tidak Valid/Tidak Terpenuhi
-error_user_msg = "{'error':{'status':'400 Bad Request','status_code': 400,'data':{'email':None,'password':None}},'message':'Username and Password dont exist'}"
+{
+    'error':{
+        'status':'400 Bad Request',
+        'status_code': 400,
+        'data':{
+            'email':None,
+            'password':None,
+        }
+    },
+    'message':'Username and Password dont exist'
+}
 ```
 ```python
-# Jika Kredensial Tidak Valid/Tidak Terpenuhi
-error_user_msg = "{'error':{'status':'400 Bad Request','status_code': 400,'data':{'email':None,'password':None}},'message':'Username and Password dont exist'}"
+# Jika Koneksi Bermasalah
+{
+    'code':400,
+    'status':'400 Bad Request',
+    'message':'ReadTimeout'
+}
+```
+<br>
+
+# Login Success For Website
+```python
+# Jika Kredensial True
+{
+    'status':'success',
+    'code':200,
+    'data':{
+        'userID':'100092492064035',
+        'password':'example123',
+        'cookie':'datr=datr=VSbSZYhAyvs; sb=z47CZF...',
+        'useragent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    },
+    'message':'Login Success'
+}
+```
+<br>
+
+# Login Success For Android
+```python
+# Jika Kredensial True
+{
+    'status':'success',
+    'code':200,
+    'data':{
+        'userID':'100092492064035',
+        'password':'example123',
+        'cookie':'datr=datr=VSbSZYhAyvs; sb=z47CZF...',
+        'token':'EAAAAU...',
+        'useragent':'Dalvik/2.1.0 (Linux; U; Android 7.1.2; SM-G977N Build/LMY48Z) [FBAN/FB4A;FBAV/417.0.0.33.65;FBPN/com.facebook.katana;FBLC/in_ID;FBBV/480086274;FBCR/Corporation Tbk;FBMF/samsung;FBBD/samsung;FBDV/SM-G977N;FBSV/7.1.2;FBCA/x86:armeabi-v7a;FBDM/{density=1.5,width=720,height=1280};FB_FW/1;FBRV/0;]',
+    },
+    'message':'Login Success'
+}
+```
+<br>
+
+# Login Checkpoint
+```python
+{
+    'status':'checkpoint',
+    'code':200,
+    'data':{
+        'userID':'100092492064035',
+        'password':'example123',
+        'useragent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...', or 'Dalvik/2.1.0 (Linux; U; Android 7.1.2; SM-G977N Build/LMY48Z)...',
+    },
+    'message':'Login Required'
+}
+```
+<br>
+
+# Login Two-Factor Authentication (A2F)
+```python
+{
+    'status':'checkpoint',
+    'code':200,
+    'data':{
+        'userID':'100092492064035',
+        'password':'example123',
+        'useragent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...', or 'Dalvik/2.1.0 (Linux; U; Android 7.1.2; SM-G977N Build/LMY48Z)...',
+    },
+    'message':'Two Factor'
+}
+```
+<br>
+
+# Login Spam For Android
+```python
+{
+    'error':{
+        'message':'Your message has been flagged as spam and cannot be sent.',
+        'code':403,
+        'data':{},
+    }
+}
+```
+<br>
+
+# Login False
+```python
+{
+    'error':{
+        'error_user_msg':'Invalid username or password',
+        'code':401,
+        'is_transient':'false',
+    }
+}
 ```
